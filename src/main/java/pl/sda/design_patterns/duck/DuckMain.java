@@ -1,5 +1,9 @@
 package pl.sda.design_patterns.duck;
 
+import pl.sda.design_patterns.duck.impl.GreenWingedTealDuck;
+import pl.sda.design_patterns.duck.impl.MallardDuck;
+import pl.sda.design_patterns.duck.impl.RubberDuck;
+
 public class DuckMain {
     public static void main(String[] args) {
         Duck mallardDuck = new MallardDuck();

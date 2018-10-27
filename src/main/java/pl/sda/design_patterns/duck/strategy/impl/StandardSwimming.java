@@ -1,4 +1,6 @@
-package pl.sda.design_patterns.duck.strategy;
+package pl.sda.design_patterns.duck.strategy.impl;
+
+import pl.sda.design_patterns.duck.strategy.Swimming;
 
 public class StandardSwimming implements Swimming {
 

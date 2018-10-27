@@ -1,13 +1,17 @@
-package pl.sda.design_patterns.duck;
+package pl.sda.design_patterns.duck.impl;
 
+import pl.sda.design_patterns.duck.Duck;
 import pl.sda.design_patterns.duck.strategy.*;
+import pl.sda.design_patterns.duck.strategy.impl.StandardQuacking;
+import pl.sda.design_patterns.duck.strategy.impl.StandardSwimming;
+import pl.sda.design_patterns.duck.strategy.impl.WingedFlying;
 
-public class MallardDuck implements Duck {
+public class GreenWingedTealDuck implements Duck {
     private Quacking quackingStrategy;
     private Flying flyingStrategy;
     private Swimming swimmingStrategy;
 
-    MallardDuck() {
+    public GreenWingedTealDuck() {
         quackingStrategy = new StandardQuacking();
         flyingStrategy = new WingedFlying();
         swimmingStrategy = new StandardSwimming();
