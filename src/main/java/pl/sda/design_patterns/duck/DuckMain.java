@@ -20,9 +20,13 @@ public class DuckMain {
         rubberDuck.swim();
         rubberDuck.quack();
 
-/*
-        final StandardSwimming standardSwimming = new StandardSwimming();
-        standardSwimming.swim2();
-*/
+/*      final StandardSwimming standardSwimming = new StandardSwimming();
+        standardSwimming.swim2();*/ // dodatkowa metoda z samej implementacji
+
+        DuckEgg.Builder builder = new DuckEgg.Builder();
+        builder.setYolkWeight(28D);
+        DuckEgg egg = builder.build();
+
+        System.out.println(egg);
     }
 }
