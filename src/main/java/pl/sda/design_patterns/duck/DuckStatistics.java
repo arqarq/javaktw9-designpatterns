@@ -2,8 +2,8 @@ package pl.sda.design_patterns.duck;
 
 import pl.sda.design_patterns.duck.ducks.Duck;
 
-import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DuckStatistics {
     private final List<Duck> ducks;
@@ -29,10 +29,27 @@ public class DuckStatistics {
 //                .collect(Collectors.toList())
 //                .get(0);
 
+//        return ducks.stream()
+//                .sorted(Comparator.comparing(Duck::age).reversed())
+//                .findFirst()
+//                .map(Duck::age)
+//                .orElse(Integer.MIN_VALUE);
+
         return ducks.stream()
-                .sorted(Comparator.comparing(Duck::age).reversed())
-                .findFirst()
                 .map(Duck::age)
+                .max(Integer::compareTo)
                 .orElse(Integer.MIN_VALUE);
+    }
+
+    public Double medianOfEggsLaid(){
+        List<Double> eggsLaid = ducks.stream()
+                .map(Duck::totalEggsLaid)
+                .sorted()
+                .map(Double::valueOf)
+                .collect(Collectors.toList());
+        int eggsLaidSize = eggsLaid.size();
+        return eggsLaidSize % 2 == 0
+                ? (eggsLaid.get(eggsLaidSize / 2 - 1) + eggsLaid.get(eggsLaidSize / 2)) / 2
+                : eggsLaid.get(eggsLaidSize / 2);
     }
 }

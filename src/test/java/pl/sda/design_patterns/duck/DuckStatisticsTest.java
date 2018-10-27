@@ -43,4 +43,37 @@ public class DuckStatisticsTest {
         // Then
         Assert.assertEquals((Integer) 555, age);
     }
+
+    @Test
+    public void shouldReturnMedianOfEggsLaid() {
+        // Given
+        Duck duck1 = mock(Duck.class);
+        when(duck1.totalEggsLaid()).thenReturn(1);
+
+        Duck duck2 = mock(Duck.class);
+        doReturn(2).when(duck2).totalEggsLaid();
+
+        Duck duck3 = mock(Duck.class);
+        doReturn(3).when(duck3).totalEggsLaid();
+
+        Duck duck4 = mock(Duck.class);
+        doReturn(4).when(duck4).totalEggsLaid();
+
+        List<Duck> ducks = new ArrayList<>();
+        ducks.add(duck1);
+        ducks.add(duck2);
+        ducks.add(duck3);
+
+        DuckStatistics duckStatistics = new DuckStatistics(ducks);
+
+        List<Duck> ducksEven = new ArrayList<>(ducks);
+        ducksEven.add(duck4);
+        DuckStatistics duckStatisticsForEvenCount = new DuckStatistics(ducksEven);
+        // When
+        Double medianOfEggsLaid = duckStatistics.medianOfEggsLaid();
+        Double medianOfEggsLaidForEvenCount = duckStatisticsForEvenCount.medianOfEggsLaid();
+        // Then
+        Assert.assertEquals((Double) 2D, medianOfEggsLaid);
+        Assert.assertEquals((Double) 2.5, medianOfEggsLaidForEvenCount);
+    }
 }
