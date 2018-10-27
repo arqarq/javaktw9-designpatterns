@@ -28,5 +28,12 @@ public class DuckMain {
         DuckEgg egg = builder.build();
 
         System.out.println(egg);
+
+        Fodder.Builder fodderBuilder = Fodder.builder(500, 500);
+        Fodder fodder = fodderBuilder
+                .minerals(true)
+                .triticaleGrams(321)
+                .build();
+        Fodder pasza = Fodder.builder(1, 2).build();
     }
 }
