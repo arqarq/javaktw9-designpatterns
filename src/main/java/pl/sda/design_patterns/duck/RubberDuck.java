@@ -1,19 +1,33 @@
 package pl.sda.design_patterns.duck;
 
+import pl.sda.design_patterns.duck.strategy.*;
+
 public class RubberDuck implements Duck {
+    private Quacking quackingStrategy;
+    private Flying flyingStrategy;
+    private Swimming swimmingStrategy;
+
+    RubberDuck() {
+        quackingStrategy = new SqueakNotQuacking();
+        flyingStrategy = new FallingNotFlying();
+        swimmingStrategy = new FloatingNotSwimming();
+    }
 
     @Override
     public void quack() {
-        System.out.println("Piszczę");
+        quackingStrategy.quack();
+//        System.out.println("IIIIkkkk!");
     }
 
     @Override
     public void swim() {
-        System.out.println("Dryfuję");
+        swimmingStrategy.swim();
+//        System.out.println("Weeeeee i'm floatin'");
     }
 
     @Override
     public void fly() {
-        System.out.println("spadam");
+        flyingStrategy.flying();
+//        System.out.println("U kiddin, i'm falling");
     }
 }
