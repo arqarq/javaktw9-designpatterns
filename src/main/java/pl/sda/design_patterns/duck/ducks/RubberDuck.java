@@ -1,10 +1,11 @@
-package pl.sda.design_patterns.duck.impl;
+package pl.sda.design_patterns.duck.ducks;
 
-import pl.sda.design_patterns.duck.Duck;
 import pl.sda.design_patterns.duck.strategy.*;
 import pl.sda.design_patterns.duck.strategy.impl.FallingNotFlying;
 import pl.sda.design_patterns.duck.strategy.impl.FloatingNotSwimming;
 import pl.sda.design_patterns.duck.strategy.impl.SqueakNotQuacking;
+
+import java.util.Random;
 
 public class RubberDuck implements Duck {
     private Quacking quackingStrategy;
@@ -33,5 +34,15 @@ public class RubberDuck implements Duck {
     public void fly() {
         flyingStrategy.flying();
 //        System.out.println("U kiddin, i'm falling");
+    }
+
+    @Override
+    public Integer totalEggsLaid() {
+        return 0;
+    }
+
+    @Override
+    public Integer age() {
+        return new Random().nextInt(10000) + 10;
     }
 }

@@ -1,8 +1,10 @@
 package pl.sda.design_patterns.duck;
 
-import pl.sda.design_patterns.duck.impl.GreenWingedTealDuck;
-import pl.sda.design_patterns.duck.impl.MallardDuck;
-import pl.sda.design_patterns.duck.impl.RubberDuck;
+import pl.sda.design_patterns.duck.ducks.Duck;
+import pl.sda.design_patterns.duck.ducks.GreenWingedTealDuck;
+import pl.sda.design_patterns.duck.ducks.MallardDuck;
+import pl.sda.design_patterns.duck.ducks.RubberDuck;
+import pl.sda.design_patterns.duck.singleton.FarmerEagerSingleton;
 
 public class DuckMain {
     public static void main(String[] args) {
@@ -35,5 +37,12 @@ public class DuckMain {
                 .triticaleGrams(321)
                 .build();
         Fodder pasza = Fodder.builder(1, 2).build();
+
+        FarmerEagerSingleton singleton1 = FarmerEagerSingleton.getInstance();
+        singleton1.addDuck(mallardDuck);
+        System.out.println(singleton1.hashCode());
+        FarmerEagerSingleton singleton2 = FarmerEagerSingleton.getInstance();
+        System.out.println(singleton2.hashCode());
+        System.out.println(singleton2.getAllDucks().size());
     }
 }
