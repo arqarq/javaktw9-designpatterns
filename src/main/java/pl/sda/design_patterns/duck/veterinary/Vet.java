@@ -6,7 +6,7 @@ public class Vet {
 
     public Vet() {
         try {
-            Thread.sleep(10_000);
+            Thread.sleep(1_000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

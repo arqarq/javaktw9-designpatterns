@@ -1,5 +1,7 @@
 package pl.sda.design_patterns.duck.ducks;
 
+import pl.sda.design_patterns.duck.DuckCoop;
+import pl.sda.design_patterns.duck.DuckEgg;
 import pl.sda.design_patterns.duck.strategy.*;
 import pl.sda.design_patterns.duck.strategy.impl.FallingNotFlying;
 import pl.sda.design_patterns.duck.strategy.impl.FloatingNotSwimming;
@@ -44,5 +46,20 @@ public class RubberDuck implements Duck {
     @Override
     public Integer age() {
         return new Random().nextInt(10000) + 10;
+    }
+
+    @Override
+    public DuckEgg layEgg() {
+        return null;
+    }
+
+    @Override
+    public void walkToDuckCoop(DuckCoop coop) {
+        System.out.println("Nope.");
+    }
+
+    @Override
+    public void notify(DuckEgg egg) {
+        System.out.println("IIIkkIk iik iii");
     }
 }

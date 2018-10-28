@@ -32,14 +32,14 @@ public class DuckEgg {
                 '}';
     }
 
-    static class Builder {
+    public static class Builder {
         private Double yolkWeight; // startowo null
 
-        void setYolkWeight(Double yolkWeight) {
+        public void setYolkWeight(Double yolkWeight) {
             this.yolkWeight = yolkWeight; // ustawic mase zoltka w builderze
         }
 
-        DuckEgg build() {
+        public DuckEgg build() {
             Double calculatedYolk = yolkWeight != null ? yolkWeight : 0D;
 
             Double calculatedWhiteWeight = calculateWhiteWeight(calculatedYolk);
