@@ -11,7 +11,7 @@ public class DuckEgg {
         this.totalWeight = totalWeight;
     }
 
-    public Double getYolkWeight() {
+/*    public Double getYolkWeight() {
         return yolkWeight;
     }
 
@@ -21,7 +21,7 @@ public class DuckEgg {
 
     public Double getTotalWeight() {
         return totalWeight;
-    }
+    }*/
 
     @Override
     public String toString() {

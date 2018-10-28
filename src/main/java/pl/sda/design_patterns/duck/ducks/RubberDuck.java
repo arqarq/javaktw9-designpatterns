@@ -2,7 +2,9 @@ package pl.sda.design_patterns.duck.ducks;
 
 import pl.sda.design_patterns.duck.DuckCoop;
 import pl.sda.design_patterns.duck.DuckEgg;
-import pl.sda.design_patterns.duck.strategy.*;
+import pl.sda.design_patterns.duck.strategy.Flying;
+import pl.sda.design_patterns.duck.strategy.Quacking;
+import pl.sda.design_patterns.duck.strategy.Swimming;
 import pl.sda.design_patterns.duck.strategy.impl.FallingNotFlying;
 import pl.sda.design_patterns.duck.strategy.impl.FloatingNotSwimming;
 import pl.sda.design_patterns.duck.strategy.impl.SqueakNotQuacking;
@@ -14,7 +16,7 @@ public class RubberDuck implements Duck {
     private Flying flyingStrategy;
     private Swimming swimmingStrategy;
 
-    public RubberDuck() {
+    RubberDuck() {
         quackingStrategy = new SqueakNotQuacking();
         flyingStrategy = new FallingNotFlying();
         swimmingStrategy = new FloatingNotSwimming();

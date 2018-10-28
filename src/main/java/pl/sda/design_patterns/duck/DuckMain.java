@@ -5,6 +5,9 @@ import pl.sda.design_patterns.duck.ducks.DuckFactory;
 import pl.sda.design_patterns.duck.ducks.DuckType;
 import pl.sda.design_patterns.duck.singleton.FarmerEagerSingleton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DuckMain {
     public static void main(String[] args) {
         DuckFactory duckFactory = new DuckFactory();
@@ -57,5 +60,40 @@ public class DuckMain {
 
         duckCoop.unregister(greenWingedTealDuck);
         mallardDuck.layEgg();
+
+        System.out.println("=========");
+
+        List<Duck> ducks = new ArrayList<>();
+        Duck duck1 = duckFactory.createDuck(DuckType.MALLARD_DUCK, "Mallard Duck 2");
+        Duck duck2 = duckFactory.createDuck(DuckType.MALLARD_DUCK, "Mallard Duck 3");
+        Duck duck3_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 2");
+        Duck duck4_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 3");
+        ducks.add(duck1);
+        ducks.add(duck2);
+        ducks.add(duck3_);
+        ducks.add(duck4_);
+        DuckStatistics duckStatistics = new DuckStatistics(ducks);
+        DuckCoop duckCoopNew = new DuckCoop();
+        duck1.walkToDuckCoop(duckCoopNew); // kacznik musi być, bo inaczej NPE
+        duck2.walkToDuckCoop(duckCoopNew);
+        duck3_.walkToDuckCoop(duckCoopNew);
+        duck4_.walkToDuckCoop(duckCoopNew);
+
+//        for (int i = 0; i < 4; i++) {
+//            duck1.layEgg();
+//        }
+//        System.out.println();
+        for (int i = 0; i < 3; i++) {
+            System.out.println(duck2.layEgg());
+        }
+        System.out.println();
+        for (int i = 0; i < 2; i++) {
+            System.out.println(duck3_.layEgg());
+        }
+        System.out.println();
+        for (int i = 0; i < 1; i++) {
+            System.out.println(duck4_.layEgg());
+        }
+        System.out.println(System.lineSeparator() + "The median of eggs laid is: " + duckStatistics.medianOfEggsLaid());
     }
 }
