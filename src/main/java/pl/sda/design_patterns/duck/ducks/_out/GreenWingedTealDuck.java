@@ -1,6 +1,6 @@
 package pl.sda.design_patterns.duck.ducks._out;
 
-import pl.sda.design_patterns.duck.AliveDuck;
+import pl.sda.design_patterns.duck.ducks.AliveDuck;
 import pl.sda.design_patterns.duck.strategy.impl.StandardQuacking;
 import pl.sda.design_patterns.duck.strategy.impl.StandardSwimming;
 import pl.sda.design_patterns.duck.strategy.impl.WingedFlying;

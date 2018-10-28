@@ -1,4 +1,4 @@
-package pl.sda.design_patterns.duck;
+package pl.sda.design_patterns.duck.ducks;
 
 public enum DuckType {
     MALLARD_DUCK,

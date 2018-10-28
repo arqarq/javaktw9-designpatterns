@@ -1,14 +1,9 @@
 package pl.sda.design_patterns.duck.ducks._out;
 
-import pl.sda.design_patterns.duck.AliveDuck;
-import pl.sda.design_patterns.duck.DuckCoop;
-import pl.sda.design_patterns.duck.DuckEgg;
-import pl.sda.design_patterns.duck.strategy.*;
+import pl.sda.design_patterns.duck.ducks.AliveDuck;
 import pl.sda.design_patterns.duck.strategy.impl.StandardQuacking;
 import pl.sda.design_patterns.duck.strategy.impl.StandardSwimming;
 import pl.sda.design_patterns.duck.strategy.impl.WingedFlying;
-
-import java.util.Random;
 
 //public class MallardDuck implements Duck {
 public class MallardDuck extends AliveDuck {

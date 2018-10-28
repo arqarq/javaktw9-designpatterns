@@ -1,6 +1,7 @@
-package pl.sda.design_patterns.duck;
+package pl.sda.design_patterns.duck.ducks;
 
-import pl.sda.design_patterns.duck.ducks.Duck;
+import pl.sda.design_patterns.duck.DuckCoop;
+import pl.sda.design_patterns.duck.DuckEgg;
 import pl.sda.design_patterns.duck.strategy.Flying;
 import pl.sda.design_patterns.duck.strategy.Quacking;
 import pl.sda.design_patterns.duck.strategy.Swimming;

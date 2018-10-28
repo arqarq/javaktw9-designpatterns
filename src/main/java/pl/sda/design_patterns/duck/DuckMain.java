@@ -1,6 +1,8 @@
 package pl.sda.design_patterns.duck;
 
 import pl.sda.design_patterns.duck.ducks.Duck;
+import pl.sda.design_patterns.duck.ducks.DuckFactory;
+import pl.sda.design_patterns.duck.ducks.DuckType;
 import pl.sda.design_patterns.duck.singleton.FarmerEagerSingleton;
 
 public class DuckMain {
