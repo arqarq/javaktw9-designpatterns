@@ -9,7 +9,7 @@ public class DuckCoop {
 
     private List<Duck> ducks;
 
-    public DuckCoop() {
+    DuckCoop() {
         ducks = new ArrayList<>();
     }
 
@@ -20,7 +20,7 @@ public class DuckCoop {
         // zapisz kaczkę w liście kaczek
     }
 
-    public void unregister(Duck duck) {
+    void unregister(Duck duck) {
         ducks.remove(duck);
         // usunąć kaczkę z listy kaczek
     }
