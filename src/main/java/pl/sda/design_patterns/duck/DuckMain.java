@@ -38,11 +38,15 @@ public class DuckMain {
                 .build();
         Fodder pasza = Fodder.builder(1, 2).build();
 
-        FarmerEagerSingleton singleton1 = FarmerEagerSingleton.getInstance();
-        singleton1.addDuck(mallardDuck);
+        FarmerEagerSingleton farmer = FarmerEagerSingleton.getInstance();
+/*        singleton1.addDuck(mallardDuck);
         System.out.println(singleton1.hashCode());
         FarmerEagerSingleton singleton2 = FarmerEagerSingleton.getInstance();
         System.out.println(singleton2.hashCode());
-        System.out.println(singleton2.getAllDucks().size());
+        System.out.println(singleton2.getAllDucks().size());*/
+        farmer.askVet();
+        System.out.println("=========");
+        farmer.askVet();
+
     }
 }

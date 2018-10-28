@@ -41,7 +41,7 @@ public class DuckStatistics {
                 .orElse(Integer.MIN_VALUE);
     }
 
-    public Double medianOfEggsLaid(){
+    public Double medianOfEggsLaid() {
         List<Double> eggsLaid = ducks.stream()
                 .map(Duck::totalEggsLaid)
                 .sorted()
