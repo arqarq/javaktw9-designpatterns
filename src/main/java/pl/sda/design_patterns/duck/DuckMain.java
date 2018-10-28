@@ -1,16 +1,14 @@
 package pl.sda.design_patterns.duck;
 
 import pl.sda.design_patterns.duck.ducks.Duck;
-import pl.sda.design_patterns.duck.ducks.GreenWingedTealDuck;
-import pl.sda.design_patterns.duck.ducks.MallardDuck;
-import pl.sda.design_patterns.duck.ducks.RubberDuck;
 import pl.sda.design_patterns.duck.singleton.FarmerEagerSingleton;
 
 public class DuckMain {
     public static void main(String[] args) {
-        Duck mallardDuck = new MallardDuck();
-        Duck greenWingedTealDuck = new GreenWingedTealDuck();
-        Duck rubberDuck = new RubberDuck();
+        DuckFactory duckFactory = new DuckFactory();
+        Duck mallardDuck = duckFactory.createDuck(DuckType.MALLARD_DUCK);
+        Duck greenWingedTealDuck = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK);
+        Duck rubberDuck = duckFactory.createDuck(DuckType.RUBBER_DUCK);
 
         mallardDuck.fly();
         mallardDuck.swim();

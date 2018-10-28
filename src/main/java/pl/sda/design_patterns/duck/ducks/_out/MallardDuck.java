@@ -1,5 +1,6 @@
-package pl.sda.design_patterns.duck.ducks;
+package pl.sda.design_patterns.duck.ducks._out;
 
+import pl.sda.design_patterns.duck.AliveDuck;
 import pl.sda.design_patterns.duck.DuckCoop;
 import pl.sda.design_patterns.duck.DuckEgg;
 import pl.sda.design_patterns.duck.strategy.*;
@@ -9,21 +10,25 @@ import pl.sda.design_patterns.duck.strategy.impl.WingedFlying;
 
 import java.util.Random;
 
-public class GreenWingedTealDuck implements Duck {
-    private Quacking quackingStrategy;
+//public class MallardDuck implements Duck {
+public class MallardDuck extends AliveDuck {
+/*    private Quacking quackingStrategy;
     private Flying flyingStrategy;
     private Swimming swimmingStrategy;
     private DuckCoop coop;
-    private Integer eggCount;
+    private Integer eggCount;*/
 
-    public GreenWingedTealDuck() {
-        quackingStrategy = new StandardQuacking();
-        flyingStrategy = new WingedFlying();
-        swimmingStrategy = new StandardSwimming();
-        eggCount = 0;
+//    public MallardDuck() {
+//        quackingStrategy = new StandardQuacking();
+//        flyingStrategy = new WingedFlying();
+//        swimmingStrategy = new StandardSwimming();
+//        eggCount = 0;
+//    }
+    public MallardDuck() {
+        super("Mallard Duck", new StandardQuacking(), new WingedFlying(), new StandardSwimming());
     }
 
-    @Override
+/*    @Override
     public void quack() {
         quackingStrategy.quack();
 //        System.out.println("Quack!");
@@ -43,6 +48,7 @@ public class GreenWingedTealDuck implements Duck {
 
     @Override
     public Integer totalEggsLaid() {
+        // zwróć faktyczną liczbę złożonych jaj
 //        return new Random().nextInt(100);
         return eggCount;
     }
@@ -55,8 +61,9 @@ public class GreenWingedTealDuck implements Duck {
     @Override
     public DuckEgg layEgg() {
         DuckEgg.Builder eggBuilder = new DuckEgg.Builder();
-        eggBuilder.setYolkWeight(12D);
+        eggBuilder.setYolkWeight(123D);
         DuckEgg egg = eggBuilder.build();
+
         eggCount++;
         coop.notifyAboutEgg(egg);
         // stwórz jajo
@@ -76,5 +83,5 @@ public class GreenWingedTealDuck implements Duck {
         String duckType = getClass().getSimpleName();
         System.out.println(duckType + ": Great eag!");
         // wyświetl pochwałę nad wspaniałością jaja
-    }
+    }*/
 }

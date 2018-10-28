@@ -1,25 +1,29 @@
-package pl.sda.design_patterns.duck.ducks;
+package pl.sda.design_patterns.duck;
 
-import pl.sda.design_patterns.duck.DuckCoop;
-import pl.sda.design_patterns.duck.DuckEgg;
-import pl.sda.design_patterns.duck.strategy.*;
-import pl.sda.design_patterns.duck.strategy.impl.StandardQuacking;
-import pl.sda.design_patterns.duck.strategy.impl.StandardSwimming;
-import pl.sda.design_patterns.duck.strategy.impl.WingedFlying;
+import pl.sda.design_patterns.duck.ducks.Duck;
+import pl.sda.design_patterns.duck.strategy.Flying;
+import pl.sda.design_patterns.duck.strategy.Quacking;
+import pl.sda.design_patterns.duck.strategy.Swimming;
 
 import java.util.Random;
 
-public class MallardDuck implements Duck {
+public class AliveDuck implements Duck {
+    private String duckName;
     private Quacking quackingStrategy;
     private Flying flyingStrategy;
     private Swimming swimmingStrategy;
     private DuckCoop coop;
     private Integer eggCount;
 
-    public MallardDuck() {
-        quackingStrategy = new StandardQuacking();
-        flyingStrategy = new WingedFlying();
-        swimmingStrategy = new StandardSwimming();
+    public AliveDuck(
+            String duckName,
+            Quacking quackingStrategy,
+            Flying flyingStrategy,
+            Swimming swimmingStrategy) {
+        this.duckName = duckName;
+        this.quackingStrategy = quackingStrategy;
+        this.flyingStrategy = flyingStrategy;
+        this.swimmingStrategy = swimmingStrategy;
         eggCount = 0;
     }
 
@@ -75,8 +79,8 @@ public class MallardDuck implements Duck {
 
     @Override
     public void notify(DuckEgg egg) {
-        String duckType = getClass().getSimpleName();
-        System.out.println(duckType + ": Great eag!");
+//        String duckType = getClass().getSimpleName();
+        System.out.println(duckName + ": Great eag!");
         // wyświetl pochwałę nad wspaniałością jaja
     }
 }
