@@ -54,5 +54,8 @@ public class DuckMain {
         mallardDuck.walkToDuckCoop(duckCoop);
         greenWingedTealDuck.walkToDuckCoop(duckCoop);
         mallardDuck.layEgg();
+
+        duckCoop.unregister(greenWingedTealDuck);
+        mallardDuck.layEgg();
     }
 }

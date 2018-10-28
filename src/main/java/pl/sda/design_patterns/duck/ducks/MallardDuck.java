@@ -58,6 +58,7 @@ public class MallardDuck implements Duck {
         DuckEgg.Builder eggBuilder = new DuckEgg.Builder();
         eggBuilder.setYolkWeight(123D);
         DuckEgg egg = eggBuilder.build();
+
         eggCount++;
         coop.notifyAboutEgg(egg);
         // stwórz jajo
