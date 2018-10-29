@@ -68,11 +68,13 @@ public class DuckMain {
         Duck duck2 = duckFactory.createDuck(DuckType.MALLARD_DUCK, "Mallard Duck 3");
         Duck duck3_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 2");
         Duck duck4_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 3");
+        Duck duck55 = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 4");
         ducks.add(duck1);
         ducks.add(duck2);
         ducks.add(duck3_);
         ducks.add(duck4_);
         DuckStatistics duckStatistics = new DuckStatistics(ducks);
+
         DuckCoop duckCoopNew = new DuckCoop();
         duck1.walkToDuckCoop(duckCoopNew); // kacznik musi być, bo inaczej NPE
         duck2.walkToDuckCoop(duckCoopNew);
@@ -95,5 +97,15 @@ public class DuckMain {
             System.out.println(duck4_.layEgg());
         }
         System.out.println(System.lineSeparator() + "The median of eggs laid is: " + duckStatistics.medianOfEggsLaid());
+
+        System.out.println("=========");
+
+        duck55.walkToDuckCoop(duckCoopNew);
+        duck1.layEgg();
+
+        System.out.println("=========");
+
+        duckCoopNew.unregister(duck55);
+        System.out.println(duck55.layEgg()); // złożyła jajo poza kacznikiem
     }
 }
