@@ -29,4 +29,8 @@ public class DuckCoop {
         ducks.forEach(duck -> duck.notify(egg));
         // poinformować za pomocą notify inne kaczki o nowym jaju
     }
+
+    public boolean checkIfDuckRegistered(Duck duck){
+        return ducks.contains(duck);
+    }
 }

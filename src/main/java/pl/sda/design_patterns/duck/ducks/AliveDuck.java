@@ -70,7 +70,7 @@ public class AliveDuck implements Duck {
         DuckEgg egg = eggBuilder.build();
 
         eggCount++;
-        if (coop != null) {
+        if (coop != null && coop.checkIfDuckRegistered(this)) {
             coop.notifyAboutEgg(egg); // kaczka może znosić jajo poza kacznikiem, bo tak
         }
         // stwórz jajo

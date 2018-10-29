@@ -107,5 +107,6 @@ public class DuckMain {
 
         duckCoopNew.unregister(duck55);
         System.out.println(duck55.layEgg()); // złożyła jajo poza kacznikiem
+        System.out.println(duck55.totalEggsLaid());
     }
 }
