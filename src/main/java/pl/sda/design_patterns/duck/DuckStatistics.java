@@ -52,4 +52,10 @@ public class DuckStatistics {
                 ? (eggsLaid.get(eggsLaidSize / 2 - 1) + eggsLaid.get(eggsLaidSize / 2)) / 2
                 : eggsLaid.get(eggsLaidSize / 2);
     }
+
+    public Double getMeanDucksAge() {
+        return ducks.stream()
+                .mapToDouble(Duck::age)
+                .reduce(0, (x, y) -> (x + y) / ducks.size());
+    }
 }

@@ -76,4 +76,26 @@ public class DuckStatisticsTest {
         Assert.assertEquals((Double) 2D, medianOfEggsLaid);
         Assert.assertEquals((Double) 2.5, medianOfEggsLaidForEvenCount);
     }
+
+    @Test
+    public void shouldReturnMeanAgeOfDucks() {
+        // Given
+        Duck duck1 = mock(Duck.class);
+        doReturn(1).when(duck1).age();
+        Duck duck2 = mock(Duck.class);
+        doReturn(2).when(duck2).age();
+        Duck duck3 = mock(Duck.class);
+        doReturn(3).when(duck3).age();
+
+        List<Duck> ducks = new ArrayList<>();
+        ducks.add(duck1);
+        ducks.add(duck2);
+        ducks.add(duck3);
+
+        DuckStatistics duckStatistics = new DuckStatistics(ducks);
+        // When
+        Double meanDucksAge = duckStatistics.getMeanDucksAge();
+        // Then
+        Assert.assertEquals((Double) 2D, meanDucksAge);
+    }
 }
