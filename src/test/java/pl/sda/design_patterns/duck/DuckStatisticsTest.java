@@ -81,11 +81,12 @@ public class DuckStatisticsTest {
     public void shouldReturnMeanAgeOfDucks() {
         // Given
         Duck duck1 = mock(Duck.class);
-        doReturn(1).when(duck1).age();
+        doReturn(0).when(duck1).age();
         Duck duck2 = mock(Duck.class);
-        doReturn(2).when(duck2).age();
+        doReturn(0).when(duck2).age();
         Duck duck3 = mock(Duck.class);
-        doReturn(3).when(duck3).age();
+        doReturn(1).when(duck3).age();
+
 
         List<Duck> ducks = new ArrayList<>();
         ducks.add(duck1);
@@ -96,6 +97,7 @@ public class DuckStatisticsTest {
         // When
         Double meanDucksAge = duckStatistics.getMeanDucksAge();
         // Then
-        Assert.assertEquals((Double) 2D, meanDucksAge);
+        Assert.assertEquals("sprawdz delte", 0.33, meanDucksAge, 0.01);
+        System.out.println(duckStatistics.getMeanDucksAge());
     }
 }

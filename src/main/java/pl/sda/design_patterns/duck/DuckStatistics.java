@@ -5,14 +5,14 @@ import pl.sda.design_patterns.duck.ducks.Duck;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DuckStatistics {
+class DuckStatistics {
     private final List<Duck> ducks;
 
-    public DuckStatistics(List<Duck> ducks) {
+    DuckStatistics(List<Duck> ducks) {
         this.ducks = ducks;
     }
 
-    public Integer getOldestDuckAge() {
+    Integer getOldestDuckAge() {
 //        Integer oldestDuckAge = Integer.MIN_VALUE;
 //
 //        for (Duck duck : ducks) {
@@ -41,7 +41,7 @@ public class DuckStatistics {
                 .orElse(Integer.MIN_VALUE);
     }
 
-    public Double medianOfEggsLaid() {
+    Double medianOfEggsLaid() {
         List<Double> eggsLaid = ducks.stream()
                 .map(Duck::totalEggsLaid)
                 .sorted()
@@ -53,9 +53,10 @@ public class DuckStatistics {
                 : eggsLaid.get(eggsLaidSize / 2);
     }
 
-    public Double getMeanDucksAge() {
+    Double getMeanDucksAge() {
         return ducks.stream()
                 .mapToDouble(Duck::age)
-                .reduce(0, (x, y) -> (x + y) / ducks.size());
+                .sum()
+                / ducks.size();
     }
 }
