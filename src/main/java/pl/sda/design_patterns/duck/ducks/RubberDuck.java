@@ -64,4 +64,9 @@ public class RubberDuck implements Duck {
     public void notify(DuckEgg egg) {
         System.out.println("IIIkkIk iik iii");
     }
+
+    @Override
+    public String getDuckName() {
+        return "Rubber Duck";
+    }
 }

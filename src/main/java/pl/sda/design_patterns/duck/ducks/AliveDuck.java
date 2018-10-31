@@ -6,8 +6,6 @@ import pl.sda.design_patterns.duck.strategy.Flying;
 import pl.sda.design_patterns.duck.strategy.Quacking;
 import pl.sda.design_patterns.duck.strategy.Swimming;
 
-import java.util.Random;
-
 public class AliveDuck implements Duck {
     private String duckName;
     private Quacking quackingStrategy;
@@ -31,12 +29,17 @@ public class AliveDuck implements Duck {
         age = 0;
     }
 
-    public void setDuckName(String name){
-        this.duckName = name;
+    void setAge(Integer age) {
+        this.age = age;
     }
 
-    public void setYolkWeightForThisType(Double yolkWeightForThisType) {
+    void setYolkWeightForThisType(Double yolkWeightForThisType) {
         this.yolkWeightForThisType = yolkWeightForThisType;
+    }
+
+    @Override
+    public String getDuckName() {
+        return duckName;
     }
 
     @Override
@@ -96,9 +99,5 @@ public class AliveDuck implements Duck {
 //        String duckType = getClass().getSimpleName();
         System.out.println(duckName + ": Great egg!");
         // wyświetl pochwałę nad wspaniałością jaja
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 }

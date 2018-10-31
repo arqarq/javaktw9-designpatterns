@@ -30,7 +30,7 @@ public class DuckCoop {
         // poinformować za pomocą notify inne kaczki o nowym jaju
     }
 
-    public boolean checkIfDuckRegistered(Duck duck){
+    public boolean checkIfDuckRegistered(Duck duck) {
         return ducks.contains(duck);
     }
 }

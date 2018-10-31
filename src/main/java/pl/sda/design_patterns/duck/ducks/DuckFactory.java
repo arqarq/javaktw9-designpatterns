@@ -10,23 +10,21 @@ public class DuckFactory {
     private static final Double YOLK_WEIGHT_MALLARD = DuckType.MALLARD_DUCK.getYolkWeight();
     private static final Double YOLK_WEIGHT_GWTD = DuckType.GREEN_WINGED_TEAL_DUCK.getYolkWeight();
 
-    private static final StandardQuacking quackStrategy = new StandardQuacking();
-    private static final WingedFlying flyStrategy = new WingedFlying();
-    private static final StandardSwimming swimStrategy = new StandardSwimming();
-
-    private static final AliveDuck aliveDuck = new AliveDuck(DEFAULT_MALLARD_DUCK_NAME,
-            quackStrategy, flyStrategy, swimStrategy);
+    private final StandardQuacking quackStrategy = new StandardQuacking();
+    private final WingedFlying flyStrategy = new WingedFlying();
+    private final StandardSwimming swimStrategy = new StandardSwimming();
 
     public Duck createDuck(DuckType type, String name, Integer age) {
-//        AliveDuck aliveDuck = new AliveDuck(name, quackStrategy, flyStrategy, swimStrategy);
+        AliveDuck aliveDuck;
+
         switch (type) {
             case MALLARD_DUCK:
-                aliveDuck.setDuckName(name);
+                aliveDuck = new AliveDuck(name, quackStrategy, flyStrategy, swimStrategy);
                 aliveDuck.setAge(age);
                 aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_MALLARD);
                 return aliveDuck;
             case GREEN_WINGED_TEAL_DUCK:
-                aliveDuck.setDuckName(name);
+                aliveDuck = new AliveDuck(name, quackStrategy, flyStrategy, swimStrategy);
                 aliveDuck.setAge(age);
                 aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_GWTD);
                 return aliveDuck;
@@ -36,15 +34,15 @@ public class DuckFactory {
     }
 
     public Duck createDuck(DuckType type) {
+        AliveDuck aliveDuck;
+
         switch (type) {
             case MALLARD_DUCK:
-//                AliveDuck aliveDuck = new AliveDuck("Noname Mallard Duck", quackStrategy, flyStrategy, swimStrategy);
-                aliveDuck.setDuckName(DEFAULT_MALLARD_DUCK_NAME);
+                aliveDuck = new AliveDuck(DEFAULT_MALLARD_DUCK_NAME, quackStrategy, flyStrategy, swimStrategy);
                 aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_MALLARD);
                 return aliveDuck;
             case GREEN_WINGED_TEAL_DUCK:
-//                AliveDuck aliveDuck1 = new AliveDuck("Noname Green Winged Teal Duck", quackStrategy, flyStrategy, swimStrategy);
-                aliveDuck.setDuckName(DEFAULT_GREEN_WINGED_TEAL_NAME);
+                aliveDuck = new AliveDuck(DEFAULT_GREEN_WINGED_TEAL_NAME, quackStrategy, flyStrategy, swimStrategy);
                 aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_GWTD);
                 return aliveDuck;
             case RUBBER_DUCK:

@@ -103,20 +103,25 @@ public class DuckMain {
             System.out.println(duck4_.layEgg());
         }
         System.out.println(System.lineSeparator() + "The median of eggs laid is: " + duckStatistics.medianOfEggsLaid());
+        System.out.print("Ducks with no eggs are:" + duckStatistics.getDucksWithNoEggs());
+        Integer age = 0;
+        System.out.print("Ducks older than " + age + " are:" + duckStatistics.getDuckOlderThan(age));
 
-        System.out.println("=========");
+        System.out.println("========= test wejścia do kacznika");
 
         duck55.walkToDuckCoop(duckCoopNew);
         duck1.layEgg();
 
-        System.out.println("=========");
+        System.out.println("========= test wyjścia z kacznika");
 
         duckCoopNew.unregister(duck55);
-        System.out.println(duck55.layEgg()); // złożyła jajo poza kacznikiem
+        duck55.layEgg(); // złożyła jajo poza kacznikiem
+        System.out.println(duck55.layEgg()); // jeszcze raz
         System.out.println(duck55.totalEggsLaid());
 
         System.out.println(duck55.age());
         System.out.println(duck1.age());
         System.out.println(duck3_.age());
+        System.out.println(mallardDuck.age());
     }
 }

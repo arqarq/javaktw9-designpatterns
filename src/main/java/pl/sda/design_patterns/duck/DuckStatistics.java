@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 class DuckStatistics {
+    private static final String LF = System.lineSeparator();
     private final List<Duck> ducks;
 
     DuckStatistics(List<Duck> ducks) {
@@ -41,6 +42,13 @@ class DuckStatistics {
                 .orElse(Integer.MIN_VALUE);
     }
 
+    Double getMeanDucksAge() {
+        return ducks.stream()
+                .mapToDouble(Duck::age)
+                .sum()
+                / ducks.size();
+    }
+
     Double medianOfEggsLaid() {
         List<Double> eggsLaid = ducks.stream()
                 .map(Duck::totalEggsLaid)
@@ -53,10 +61,23 @@ class DuckStatistics {
                 : eggsLaid.get(eggsLaidSize / 2);
     }
 
-    Double getMeanDucksAge() {
+/*    List<Duck> getDucksWithNoEggs() {
         return ducks.stream()
-                .mapToDouble(Duck::age)
-                .sum()
-                / ducks.size();
+                .filter(x -> x.totalEggsLaid() == 0)
+                .collect(Collectors.toList());
+    }*/
+
+    String getDucksWithNoEggs() {
+        return ducks.stream()
+                .filter(x -> x.totalEggsLaid() == 0)
+                .map(Duck::getDuckName)
+                .collect(Collectors.joining(LF, LF, LF));
+    }
+
+    String getDuckOlderThan(Integer age) {
+        return ducks.stream()
+                .filter(x -> x.age() > age)
+                .map(Duck::getDuckName)
+                .collect(Collectors.joining(LF, LF, LF));
     }
 }
