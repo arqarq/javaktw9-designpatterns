@@ -15,6 +15,7 @@ public class AliveDuck implements Duck {
     private Swimming swimmingStrategy;
     private DuckCoop coop;
     private Integer eggCount;
+    private Integer age;
     private Double yolkWeightForThisType;
 
     public AliveDuck(
@@ -27,6 +28,11 @@ public class AliveDuck implements Duck {
         this.flyingStrategy = flyingStrategy;
         this.swimmingStrategy = swimmingStrategy;
         eggCount = 0;
+        age = 0;
+    }
+
+    public void setDuckName(String name){
+        this.duckName = name;
     }
 
     public void setYolkWeightForThisType(Double yolkWeightForThisType) {
@@ -60,7 +66,7 @@ public class AliveDuck implements Duck {
 
     @Override
     public Integer age() {
-        return new Random().nextInt(1000) + 10;
+        return age;
     }
 
     @Override
@@ -90,5 +96,9 @@ public class AliveDuck implements Duck {
 //        String duckType = getClass().getSimpleName();
         System.out.println(duckName + ": Great egg!");
         // wyświetl pochwałę nad wspaniałością jaja
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

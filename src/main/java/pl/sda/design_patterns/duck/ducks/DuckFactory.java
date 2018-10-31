@@ -5,20 +5,30 @@ import pl.sda.design_patterns.duck.strategy.impl.StandardSwimming;
 import pl.sda.design_patterns.duck.strategy.impl.WingedFlying;
 
 public class DuckFactory {
-    private final StandardQuacking quackStrategy = new StandardQuacking();
-    private final WingedFlying flyStrategy = new WingedFlying();
-    private final StandardSwimming swimStrategy = new StandardSwimming();
-    private final Double yolkWeightMallard = DuckType.MALLARD_DUCK.getYolkWeight();
-    private final Double yolkWeightGWTD = DuckType.GREEN_WINGED_TEAL_DUCK.getYolkWeight();
+    private static final String DEFAULT_MALLARD_DUCK_NAME = "Noname Mallard Duck";
+    private static final String DEFAULT_GREEN_WINGED_TEAL_NAME = "Noname Green Winged Teal Duck";
+    private static final Double YOLK_WEIGHT_MALLARD = DuckType.MALLARD_DUCK.getYolkWeight();
+    private static final Double YOLK_WEIGHT_GWTD = DuckType.GREEN_WINGED_TEAL_DUCK.getYolkWeight();
 
-    public Duck createDuck(DuckType type, String name) {
-        AliveDuck aliveDuck = new AliveDuck(name, quackStrategy, flyStrategy, swimStrategy);
+    private static final StandardQuacking quackStrategy = new StandardQuacking();
+    private static final WingedFlying flyStrategy = new WingedFlying();
+    private static final StandardSwimming swimStrategy = new StandardSwimming();
+
+    private static final AliveDuck aliveDuck = new AliveDuck(DEFAULT_MALLARD_DUCK_NAME,
+            quackStrategy, flyStrategy, swimStrategy);
+
+    public Duck createDuck(DuckType type, String name, Integer age) {
+//        AliveDuck aliveDuck = new AliveDuck(name, quackStrategy, flyStrategy, swimStrategy);
         switch (type) {
             case MALLARD_DUCK:
-                aliveDuck.setYolkWeightForThisType(yolkWeightMallard);
+                aliveDuck.setDuckName(name);
+                aliveDuck.setAge(age);
+                aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_MALLARD);
                 return aliveDuck;
             case GREEN_WINGED_TEAL_DUCK:
-                aliveDuck.setYolkWeightForThisType(yolkWeightGWTD);
+                aliveDuck.setDuckName(name);
+                aliveDuck.setAge(age);
+                aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_GWTD);
                 return aliveDuck;
             default:
                 throw new IllegalArgumentException("Unknown duck: " + type);
@@ -28,15 +38,15 @@ public class DuckFactory {
     public Duck createDuck(DuckType type) {
         switch (type) {
             case MALLARD_DUCK:
-                AliveDuck aliveDuck = new AliveDuck(
-                        "Noname Mallard Duck", quackStrategy, flyStrategy, swimStrategy);
-                aliveDuck.setYolkWeightForThisType(yolkWeightMallard);
+//                AliveDuck aliveDuck = new AliveDuck("Noname Mallard Duck", quackStrategy, flyStrategy, swimStrategy);
+                aliveDuck.setDuckName(DEFAULT_MALLARD_DUCK_NAME);
+                aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_MALLARD);
                 return aliveDuck;
             case GREEN_WINGED_TEAL_DUCK:
-                AliveDuck aliveDuck1 = new AliveDuck(
-                        "Noname Green Winged Teal Duck", quackStrategy, flyStrategy, swimStrategy);
-                aliveDuck1.setYolkWeightForThisType(yolkWeightGWTD);
-                return aliveDuck1;
+//                AliveDuck aliveDuck1 = new AliveDuck("Noname Green Winged Teal Duck", quackStrategy, flyStrategy, swimStrategy);
+                aliveDuck.setDuckName(DEFAULT_GREEN_WINGED_TEAL_NAME);
+                aliveDuck.setYolkWeightForThisType(YOLK_WEIGHT_GWTD);
+                return aliveDuck;
             case RUBBER_DUCK:
                 return new RubberDuck();
             default:

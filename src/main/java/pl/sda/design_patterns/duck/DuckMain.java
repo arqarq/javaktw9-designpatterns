@@ -7,6 +7,7 @@ import pl.sda.design_patterns.duck.singleton.FarmerEagerSingleton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class DuckMain {
     public static void main(String[] args) {
@@ -64,11 +65,16 @@ public class DuckMain {
         System.out.println("=========");
 
         List<Duck> ducks = new ArrayList<>();
-        Duck duck1 = duckFactory.createDuck(DuckType.MALLARD_DUCK, "Mallard Duck 2");
-        Duck duck2 = duckFactory.createDuck(DuckType.MALLARD_DUCK, "Mallard Duck 3");
-        Duck duck3_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 2");
-        Duck duck4_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 3");
-        Duck duck55 = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 4");
+        Duck duck1 = duckFactory.createDuck(DuckType.MALLARD_DUCK, "Mallard Duck 2",
+                new Random().nextInt(1000));
+        Duck duck2 = duckFactory.createDuck(DuckType.MALLARD_DUCK, "Mallard Duck 3",
+                new Random().nextInt(1000));
+        Duck duck3_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 2",
+                new Random().nextInt(1000) + 10);
+        Duck duck4_ = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 3",
+                new Random().nextInt(1000) + 10);
+        Duck duck55 = duckFactory.createDuck(DuckType.GREEN_WINGED_TEAL_DUCK, "Green Winged Teal Duck 4",
+                new Random().nextInt(1000) + 10);
         ducks.add(duck1);
         ducks.add(duck2);
         ducks.add(duck3_);
@@ -108,5 +114,9 @@ public class DuckMain {
         duckCoopNew.unregister(duck55);
         System.out.println(duck55.layEgg()); // złożyła jajo poza kacznikiem
         System.out.println(duck55.totalEggsLaid());
+
+        System.out.println(duck55.age());
+        System.out.println(duck1.age());
+        System.out.println(duck3_.age());
     }
 }
