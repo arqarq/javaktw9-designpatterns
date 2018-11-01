@@ -2,6 +2,8 @@ package pl.sda.design_patterns.duck;
 
 import org.junit.Assert;
 import org.junit.Test;
+import junitparams.Parameters;
+
 import pl.sda.design_patterns.duck.ducks.Duck;
 
 import java.util.ArrayList;
@@ -87,7 +89,6 @@ public class DuckStatisticsTest {
         Duck duck3 = mock(Duck.class);
         doReturn(1).when(duck3).age();
 
-
         List<Duck> ducks = new ArrayList<>();
         ducks.add(duck1);
         ducks.add(duck2);
@@ -99,5 +100,20 @@ public class DuckStatisticsTest {
         // Then
         Assert.assertEquals("sprawdz delte", 0.33, meanDucksAge, 0.01);
         System.out.println(duckStatistics.getMeanDucksAge());
+    }
+
+    @Test
+    public void testDucksWithNoEggs() {
+        // Given
+        // When
+        // Then
+    }
+
+    @Test
+    @Parameters("0")
+    public void testDucksOlderThan() {
+        // Given
+        // When
+        // Then
     }
 }

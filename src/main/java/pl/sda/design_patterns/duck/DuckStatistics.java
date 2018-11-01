@@ -74,7 +74,7 @@ class DuckStatistics {
                 .collect(Collectors.joining(LF, LF, LF));
     }
 
-    String getDuckOlderThan(Integer age) {
+    String getDucksOlderThan(Integer age) {
         return ducks.stream()
                 .filter(x -> x.age() > age)
                 .map(Duck::getDuckName)
