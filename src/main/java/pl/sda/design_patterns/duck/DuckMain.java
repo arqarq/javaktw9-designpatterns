@@ -103,9 +103,11 @@ public class DuckMain {
             System.out.println(duck4_.layEgg());
         }
         System.out.println(System.lineSeparator() + "The median of eggs laid is: " + duckStatistics.medianOfEggsLaid());
-        System.out.print("Ducks with no eggs are:" + duckStatistics.getDucksWithNoEggs());
-        Integer age = 0;
-        System.out.print("Ducks older than " + age + " are:" + duckStatistics.getDucksOlderThan(age));
+        System.out.print("Ducks with no eggs are:" + duckStatistics.getDucksWithNoEggsAsString());
+        Integer age = 1;
+        System.out.println("Ducks older than " + age + " are:");
+        duckStatistics.getDucksOlderThan(age).forEach(
+                x -> System.out.println(x.getDuckName()));
 
         System.out.println("========= test wejścia do kacznika");
 

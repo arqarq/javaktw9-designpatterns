@@ -61,13 +61,13 @@ class DuckStatistics {
                 : eggsLaid.get(eggsLaidSize / 2);
     }
 
-/*    List<Duck> getDucksWithNoEggs() {
+    List<Duck> getDucksWithNoEggs() {
         return ducks.stream()
                 .filter(x -> x.totalEggsLaid() == 0)
                 .collect(Collectors.toList());
-    }*/
+    }
 
-    String getDucksWithNoEggs() {
+    String getDucksWithNoEggsAsString() {
         return ducks.stream()
                 .filter(x -> x.totalEggsLaid() == 0)
                 .map(Duck::getDuckName)
@@ -75,11 +75,12 @@ class DuckStatistics {
                 .collect(Collectors.joining(LF, LF, LF));
     }
 
-    String getDucksOlderThan(Integer age) {
+    List<Duck> getDucksOlderThan(Integer age) {
         return ducks.stream()
                 .filter(x -> x.age() > age)
-                .map(Duck::getDuckName)
-                .sorted()
-                .collect(Collectors.joining(LF, LF, LF));
+//                .map(Duck::getDuckName)
+//                .sorted()
+//                .collect(Collectors.joining(LF, LF, LF));
+                .collect(Collectors.toList());
     }
 }

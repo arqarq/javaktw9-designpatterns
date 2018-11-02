@@ -96,7 +96,7 @@ public class DuckStatisticsTest {
     }
 
     @Test
-    public void shouldReturnDucksWithNoEggs() {
+    public void shouldReturnDucksWithNoEggsAsString() {
         // Given
         doReturn(0).when(duck1).totalEggsLaid();
         doReturn("b").when(duck1).getDuckName();
@@ -104,9 +104,23 @@ public class DuckStatisticsTest {
         doReturn("a").when(duck2).getDuckName();
         doReturn(4).when(duck3).totalEggsLaid();
         // When
-        String zeroEggs = duckStatistics.getDucksWithNoEggs();
+        String zeroEggs = duckStatistics.getDucksWithNoEggsAsString();
         // Then
         Assert.assertEquals(LF + "a" + LF + "b" + LF, zeroEggs);
+    }
+
+    @Test
+    public void getDucksWithNoEggs() {
+        // Given
+        doReturn(0).when(duck1).totalEggsLaid();
+        doReturn(0).when(duck2).totalEggsLaid();
+        doReturn(4).when(duck3).totalEggsLaid();
+        // When
+        List<Duck> zeroEggs = duckStatistics.getDucksWithNoEggs();
+        // Then
+        Assert.assertTrue(zeroEggs.contains(duck1));
+        Assert.assertTrue(zeroEggs.contains(duck2));
+        Assert.assertFalse(zeroEggs.contains(duck3));
     }
 
     @Test
@@ -119,8 +133,10 @@ public class DuckStatisticsTest {
         doReturn(30).when(duck3).age();
         doReturn("a").when(duck3).getDuckName();
         // When
-        String ducksOlderThan = duckStatistics.getDucksOlderThan(age);
+        List<Duck> ducksOlderThan = duckStatistics.getDucksOlderThan(age);
         // Then
-        assertThat(ducksOlderThan).isEqualTo(LF + "a" + LF + "b" + LF);
+        assertThat(ducksOlderThan).contains(duck2, duck3);
+        assertThat(ducksOlderThan.get(0).getDuckName()).isEqualToIgnoringCase("B");
+        assertThat(ducksOlderThan.get(1).getDuckName()).isEqualTo("a");
     }
 }
