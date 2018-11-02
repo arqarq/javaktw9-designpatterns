@@ -1,18 +1,21 @@
 package pl.sda.design_patterns.duck;
 
+import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import pl.sda.design_patterns.duck.ducks.Duck;
-
-import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
+@RunWith(JUnitParamsRunner.class)
 public class DuckStatisticsTest {
     private static final String LF = System.lineSeparator();
 
@@ -21,6 +24,11 @@ public class DuckStatisticsTest {
     private Duck duck3 = mock(Duck.class);
     private List<Duck> ducks = new ArrayList<>();
     private DuckStatistics duckStatistics = new DuckStatistics(ducks);
+
+    @BeforeClass
+    public static void init() {
+        System.out.println("Starting tests...");
+    }
 
     @Before
     public void setUp() {
@@ -102,8 +110,8 @@ public class DuckStatisticsTest {
     }
 
     @Test
-//    @Parameters("20")
-    public void shouldReturnDucksOlderThan() {
+    @Parameters("20")
+    public void shouldReturnDucksOlderThan(Integer age) {
         // Given
         doReturn(10).when(duck1).age();
         doReturn(21).when(duck2).age();
@@ -111,7 +119,7 @@ public class DuckStatisticsTest {
         doReturn(30).when(duck3).age();
         doReturn("a").when(duck3).getDuckName();
         // When
-        String ducksOlderThan = duckStatistics.getDucksOlderThan(20);
+        String ducksOlderThan = duckStatistics.getDucksOlderThan(age);
         // Then
         assertThat(ducksOlderThan).isEqualTo(LF + "a" + LF + "b" + LF);
     }
