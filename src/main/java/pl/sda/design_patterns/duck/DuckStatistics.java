@@ -71,6 +71,7 @@ class DuckStatistics {
         return ducks.stream()
                 .filter(x -> x.totalEggsLaid() == 0)
                 .map(Duck::getDuckName)
+                .sorted()
                 .collect(Collectors.joining(LF, LF, LF));
     }
 
@@ -78,6 +79,7 @@ class DuckStatistics {
         return ducks.stream()
                 .filter(x -> x.age() > age)
                 .map(Duck::getDuckName)
+                .sorted()
                 .collect(Collectors.joining(LF, LF, LF));
     }
 }
