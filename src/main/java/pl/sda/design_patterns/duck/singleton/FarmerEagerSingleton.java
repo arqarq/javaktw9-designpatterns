@@ -14,7 +14,7 @@ public class FarmerEagerSingleton {
     private List<Duck> ducks;
     private ContactToVet contactToVet;
 
-    private FarmerEagerSingleton() {
+    /*private*/public FarmerEagerSingleton() {
         System.out.println(new Date() + " - Farmer is initializing");
         List<Duck> notSyncedList = new ArrayList<>();
         ducks = Collections.synchronizedList(notSyncedList); // synchronizowana lista
